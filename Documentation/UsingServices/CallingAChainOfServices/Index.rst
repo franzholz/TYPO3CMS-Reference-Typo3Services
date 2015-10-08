@@ -23,7 +23,7 @@ process::
 
       // use 'auth' service to find the user
            // first found user will be used
-   $serviceChain='';
+   $serviceChain = '';
    while (is_object($serviceObj = t3lib_div::makeInstanceService('auth', $subType, $serviceChain))) {
            $serviceChain .= ',' . $serviceObj->getServiceKey();
 
@@ -47,8 +47,8 @@ when a certain value is returned by the method called::
    while (is_object($serviceObj = t3lib_div::makeInstanceService('auth', $subType, $serviceChain))) {
            $serviceChain .= ',' . $serviceObj->getServiceKey();
            $serviceObj->initAuth($subType, $loginData, $authInfo, $this);
-           if (($ret = $serviceObj->authUser($tempuser))>0) {
-                           // if the service returns >=200 then no more checking is needed
+           if (($ret = $serviceObj->authUser($tempuser)) > 0) {
+                           // if the service returns >= 200 then no more checking is needed
                      // useful for IP checking without password
                    if (intval($ret) >= 200) {
                            $authenticated = true;
